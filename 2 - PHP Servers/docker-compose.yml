@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  wordpress:
+    image: desarrolloinegt/php-wordpress:5.6
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      - WORDPRESS_DB_HOST:${DB_HOST}
+      - WORDPRESS_DB_USER:${USER_NAME}
+      - WORDPRESS_DB_PASSWORD:${USER_PASSWORD}
+      - WORDPRESS_DB_NAME:${DB_NAME}
+    volumes:
+      - ./wordpress:/var/www/html
